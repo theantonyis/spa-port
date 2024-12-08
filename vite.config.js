@@ -1,14 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
-// import viteImagemin from 'vite-plugin-imagemin';
+import viteImagemin from 'vite-plugin-imagemin';
 
 export default defineConfig({
   plugins: [
     react(),
-    // viteImagemin({
-    //   quality: 80
-    // })
+    viteImagemin({
+       quality: 80
+    })
   ],
   server: {
     port: 3000,
