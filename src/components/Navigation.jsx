@@ -28,9 +28,7 @@ const Navigation = () => {
                 } sm:bg-transparent sm:opacity-100 sm:relative`}
             >
                 <ul
-                    className={`sm:flex sm:space-x-6 space-y-4 sm:space-y-0 absolute sm:static top-16 right-0 bg-white dark:bg-gray-900 sm:bg-transparent sm:text-gray-800 dark:sm:text-gray-200 sm:flex-row ${
-                        isMenuOpen ? 'block' : 'hidden'
-                    }`}
+                    className="pt-2 pl-3 flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0 sm:static top-16 right-0 bg-white dark:bg-gray-900 sm:bg-transparent sm:text-gray-800 dark:sm:text-gray-200"
                 >
                     <li>
                         <Link
@@ -64,7 +62,7 @@ const Navigation = () => {
                             Contacts
                         </Link>
                     </li>
-                    <li className="flex items-center">
+                    <li className="flex items-center mt-2 sm:mt-0">
                         <ThemeToggle /> {/* Додаємо кнопку ThemeToggle */}
                     </li>
                 </ul>
