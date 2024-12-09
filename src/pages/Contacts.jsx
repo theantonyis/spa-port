@@ -9,8 +9,8 @@ const validationSchema = Yup.object({
 
 const Contacts = () => {
     return (
-        <section>
-            <h1>Contact Me</h1>
+        <section className="flex flex-col items-center p-6 bg-gray-100 dark:bg-gray-900 rounded-lg shadow-md">
+            <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-6">Contact Me</h1>
             <Formik
                 initialValues={{ name: '', email: '', message: '' }}
                 validationSchema={validationSchema}
@@ -19,14 +19,58 @@ const Contacts = () => {
                 }}
             >
                 {({ isSubmitting }) => (
-                    <Form>
-                        <Field type="text" name="name" placeholder="Your Name" />
-                        <ErrorMessage name="name" component="div" />
-                        <Field type="email" name="email" placeholder="Your Email" />
-                        <ErrorMessage name="email" component="div" />
-                        <Field as="textarea" name="message" placeholder="Your Message" />
-                        <ErrorMessage name="message" component="div" />
-                        <button type="submit" disabled={isSubmitting}>Submit</button>
+                    <Form className="w-full max-w-md">
+                        {/* Name Field */}
+                        <div className="mb-4">
+                            <Field
+                                type="text"
+                                name="name"
+                                placeholder="Your Name"
+                                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                            <ErrorMessage
+                                name="name"
+                                component="div"
+                                className="text-red-500 text-sm mt-1"
+                            />
+                        </div>
+                        {/* Email Field */}
+                        <div className="mb-4">
+                            <Field
+                                type="email"
+                                name="email"
+                                placeholder="Your Email"
+                                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                            <ErrorMessage
+                                name="email"
+                                component="div"
+                                className="text-red-500 text-sm mt-1"
+                            />
+                        </div>
+                        {/* Message Field */}
+                        <div className="mb-4">
+                            <Field
+                                as="textarea"
+                                name="message"
+                                placeholder="Your Message"
+                                rows="5"
+                                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-lg bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                            <ErrorMessage
+                                name="message"
+                                component="div"
+                                className="text-red-500 text-sm mt-1"
+                            />
+                        </div>
+                        {/* Submit Button */}
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition-all disabled:opacity-50"
+                        >
+                            {isSubmitting ? 'Submitting...' : 'Submit'}
+                        </button>
                     </Form>
                 )}
             </Formik>

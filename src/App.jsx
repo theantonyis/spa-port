@@ -7,7 +7,7 @@ import Contacts from '@/pages/Contacts';
 import Layout from '@/components/Layout';
 import Navigation from "@components/Navigation.jsx";
 import { ThemeProvider } from '@hooks/ThemeContext.jsx';
-import ThemeToggle from '@/components/ThemeToggle';
+
 
 const about = import.meta.env.VITE_ABOUT_PAGE;
 const projects = import.meta.env.VITE_PROJECTS_PAGE;
@@ -23,7 +23,6 @@ const App = () => {
                         className="flex justify-between items-center p-4 bg-blue-200 dark:bg-gray-900 sm:flex-col sm:items-start">
                         <h1 className="mb-3 text-xl font-bold text-gray-800 dark:text-gray-200 sm:text-lg md:text-xl">SPA Portfolio</h1>
                         <Navigation/>
-                        <ThemeToggle/>
                     </div>
                     <Routes>
                         <Route path={about} element={<About/>}/>

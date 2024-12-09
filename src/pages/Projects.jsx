@@ -1,10 +1,14 @@
 import { useState } from 'react';
+import GoogleImg from '@/assets/Google.png';
+import BrawlImg from '@/assets/browl.jpg';
+import FacebookImg from '@/assets/face.png';
+import FortImg from '@/assets/fortnite.png';
 
 const projects = [
-    { id: 1, name: 'Google', category: 'Web', image: 'google.png' },
-    { id: 2, name: 'Brawl Stars', category: 'Mobile', image: 'browl.jpg' }, // Оновлено зображення на 'brawl-stars.jpg'
-    { id: 3, name: 'Facebook', category: 'Web', image: 'facebook.png' },
-    { id: 4, name: 'Dota 2', category: 'Game', image: 'dota2.png' },
+    { id: 1, name: 'Google', category: 'Web', image: GoogleImg },
+    { id: 2, name: 'Brawl Stars', category: 'Mobile', image: BrawlImg },
+    { id: 3, name: 'Facebook', category: 'Web', image: FacebookImg },
+    { id: 4, name: 'Fortnite', category: 'Game', image: FortImg },
 ];
 
 const Projects = () => {
@@ -46,7 +50,7 @@ const Projects = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProjects.map(project => (
                     <div key={project.id} className="p-4 bg-gray-200 dark:bg-gray-800 rounded-lg text-center">
-                        <img src={`./assets/${project.image}`} alt={project.name} className="w-full h-32 object-cover mb-2" />
+                        <img src={project.image} alt={project.name} className="w-full h-32 object-cover mb-2" />
                         <h2 className="text-xl font-bold">{project.name}</h2>
                         <p>{project.category}</p>
                     </div>

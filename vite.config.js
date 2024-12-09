@@ -1,18 +1,36 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path';
 import viteImagemin from 'vite-plugin-imagemin';
+import imageOptimizer from '@vitejs/plugin-image-optimizer';
 
 export default defineConfig({
   plugins: [
     react(),
     viteImagemin({
-       quality: 80
-    })
+      quality: 80, // Компресія зображень
+    }),
+    imageOptimizer({
+      include: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.svg'],
+      svgoOptions: {
+        plugins: [
+          {
+            name: 'removeViewBox',
+            active: false, // Залишає viewBox в SVG для коректного рендеру
+          },
+        ],
+      },
+      mozjpeg: {
+        quality: 75, // Якість JPEG
+      },
+      optipng: {
+        optimizationLevel: 3, // Рівень оптимізації PNG
+      },
+    }),
   ],
   server: {
     port: 3000,
-    open: true
+    open: true,
   },
   resolve: {
     alias: {
@@ -25,6 +43,6 @@ export default defineConfig({
   },
   build: {
     sourcemap: true,
-    chunkSizeWarningLimit: 500
-  }
-})
+    chunkSizeWarningLimit: 500,
+  },
+});
